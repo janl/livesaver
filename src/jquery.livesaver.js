@@ -2,7 +2,7 @@
  LiveSaver -- Saves lifes.
  Copyright 2006-2008 Jan Lehnardt <jan@apache.org>
  
- TODO: store and read from and to cookie
+ MIT Licensed. Look it up.
 */
 
 (function($) {
