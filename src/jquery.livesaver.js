@@ -30,7 +30,7 @@
     var session = {};
 
     function ls_reset(element) {
-        alert("reset " + element);
+        store.reset(element);
     }
 
     function ls_register(element) {
@@ -56,21 +56,30 @@
             var cookie_data = $.cookie(key());
 
             if(cookie_data) {
-                store.data = $.json2.parse_partial(cookie_data);
+                this.data = $.json2.parse_partial(cookie_data);
             }
-            store.data[element.id] = $(element).val();
-            $.cookie(key(), $.json2.stringify(this.data), {
-                expires: 10000 //days
-            });
+            this.data[element.id] = $(element).val();
+            this._save(element);
         },
 
         get: function(element) {
-            store.data = $.json2.parse_partial($.cookie(key()), {});
-            if(store.data && store.data[element.id]) {
-                return store.data[element.id];
+            this.data = $.json2.parse_partial($.cookie(key()), {});
+            if(this.data && this.data[element.id]) {
+                return this.data[element.id];
             }
             return "";
         },
+        
+        reset: function(element) {
+            this.data[element.id] = "";
+            this._save(element);
+        },
+        
+        _save: function(element) {
+            $.cookie(key(), $.json2.stringify(this.data), {
+                expires: 10000 //days
+            });
+        }
     }
 
 })(jQuery);
