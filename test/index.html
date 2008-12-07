@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>LiveSaver Test Page</title>
+        <script type="text/javascript" charset="utf-8" src="../vendor/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../vendor/jquery.cookie.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../src/jquery.json2.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../src/jquery.livesaver.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            jQuery(function($){
+               // $.livesaver.setPageKey("foo_page"); // optional
+
+                // var reset = false;
+                // if(reset) {
+                //     $("input").livesaver("reset"); 
+                // }
+
+                $("input").livesaver(); 
+            });
+        </script>
+    </head>
+
+    <body id="index">
+        <label for="foo">foo</label><input type="text" name="foo" value="" id="foo" />
+    </body>
+</html>
